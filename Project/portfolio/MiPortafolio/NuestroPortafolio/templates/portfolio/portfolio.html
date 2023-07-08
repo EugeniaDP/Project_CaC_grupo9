@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/homer_edison.jpg' %}{% endblock %}
+
+{% block headers %}
+<h1>Portfolio</h1>
+<span class="subheading">Nuestros proyectos</span>
+{% endblock %}
+
+{% block content %}
+
+{% for project in projects %}
+    <div>
+        <h2><a href="{{ project.link }}">{{ project.title }}</a></h2>
+        <p>{{ project.descripcion }}</p>
+        <img src="{{ project.imagen.url }}" width="200" height="200" alt="">
+    </div>
+    <br>
+    <br>
+    <br>
+{% endfor %}
+{% endblock %}
